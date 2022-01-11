@@ -28,6 +28,18 @@ namespace leetCode
 
         private static void Main(string[] args)
         {
+            var Wk = GetWk();
+            Console.WriteLine("Wk: " + Wk);
+
+            var WkD = GetWkDigress(Wk);
+            Console.WriteLine("WkD: " + WkD);
+
+            var Omax = GetOMax();
+            Console.WriteLine("Omax: " + Omax);
+
+            var OmaxD = GetOMaxDigress(Omax);
+            Console.WriteLine("OmaxD: " + OmaxD);
+
             var Ptr = GetPtr();
             Console.WriteLine("Ptr: " + Ptr);
 
@@ -75,6 +87,15 @@ namespace leetCode
             var kys = Getkys(MSc, qstmom, Wir, km);
             Console.WriteLine("kys: " + kys);
 
+            Console.WriteLine("Qmax: " + Qmax);
+            Console.WriteLine("qsk: " + qsk);
+
+            var D = GetD();
+            Console.WriteLine("D: " + D);
+
+            var ky = Getky(D, Wir, Kdv, Kred);
+            Console.WriteLine("ky: " + ky);
+
             Console.ReadKey();
         }
 
@@ -91,6 +112,26 @@ namespace leetCode
         private static double DigMinToRad(double num)
         {
             return num * 0.00029088820867;
+        }
+
+        private static double GetWk()
+        {
+            return Emax / Qmax;
+        }
+
+        private static double GetWkDigress(double Wk)
+        {
+            return (Wk * 180) / Math.PI;
+        }
+
+        private static double GetOMax()
+        {
+            return Math.Pow(Qmax, 2) / Emax;
+        }
+
+        private static double GetOMaxDigress(double Omax)
+        {
+            return (Omax * 180) / Math.PI;
         }
 
         private static double GetPtr()
@@ -157,6 +198,16 @@ namespace leetCode
         private static double Getkys(double MSc, double qstmom, double kir, double km)
         {
             return MSc / (qstmom * kir * km);
+        }
+
+        private static double GetD()
+        {
+            return Qmax / qsk;
+        }
+
+        private static double Getky(double D, double kir, double kdv, double kred)
+        {
+            return D / (kir * kdv * kred);
         }
     }
 }
